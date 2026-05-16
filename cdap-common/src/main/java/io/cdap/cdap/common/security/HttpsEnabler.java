@@ -259,7 +259,7 @@ public final class HttpsEnabler {
         return factory;
       }
 
-      SSLContext sslContext = SSLContext.getInstance("SSL");
+      SSLContext sslContext = SSLContext.getInstance("TLS");
       KeyManagerFactory kmf = keyManagerFactory;
       TrustManagerFactory tmf = trustManagerFactory;
 
