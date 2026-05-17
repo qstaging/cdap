@@ -61,6 +61,8 @@ import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder;
 
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
+
 /**
  * Utility class with methods for generating a X.509 self signed certificate and creating a Java key
  * store with a self signed certificate.
@@ -105,11 +107,8 @@ public final class KeyStores {
    */
   public static KeyStore generatedCertKeyStore(int validityDays, String password) {
     try {
-      KeyPairGenerator keyGen = KeyPairGenerator.getInstance(KEY_PAIR_ALGORITHM);
-      SecureRandom random = SecureRandom.getInstance(SECURE_RANDOM_ALGORITHM,
-          SECURE_RANDOM_PROVIDER);
-      keyGen.initialize(KEY_SIZE, random);
-      // generate a key pair
+      KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DILITHIUM3", "BC");
+      // Note: DILITHIUM3 does not require initialize() call
       KeyPair pair = keyGen.generateKeyPair();
 
       Certificate cert = getCertificate(DISTINGUISHED_NAME, pair, validityDays,
