@@ -754,7 +754,7 @@ final class DataprocConf {
     String clusterReuseKey = null;
     if (clusterReuseEnabled) {
       try {
-        MessageDigest digest = MessageDigest.getInstance("SHA-1");
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
         digest.update(properties.entrySet()
             .stream()
             .sorted(Map.Entry.comparingByKey())
