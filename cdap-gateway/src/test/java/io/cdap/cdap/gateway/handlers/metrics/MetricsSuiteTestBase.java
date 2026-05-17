@@ -285,7 +285,7 @@ public abstract class MetricsSuiteTestBase {
 
   private static CloseableHttpClient createHttpClient() {
     try {
-      SSLContext sslContext = SSLContext.getInstance("SSL");
+      SSLContext sslContext = SSLContext.getInstance("TLS");
       sslContext.init(null, InsecureTrustManagerFactory.INSTANCE.getTrustManagers(), new SecureRandom());
 
       return HttpClientBuilder.create()
