@@ -106,7 +106,7 @@ public final class ComputeEngineCredentials extends GoogleCredentials {
 
   private void disableVerifySsl(HttpsURLConnection connection) throws IOException {
     try {
-      SSLContext sslContextWithNoVerify = SSLContext.getInstance("SSL");
+      SSLContext sslContextWithNoVerify = SSLContext.getInstance("TLS");
       TrustManager[] trustAllCerts = new TrustManager[]{ new X509TrustManager() {
         public X509Certificate[] getAcceptedIssuers() {
           return null;

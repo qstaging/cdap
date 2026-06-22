@@ -148,7 +148,7 @@ public class NettyRouterHttpsTest extends NettyRouterTestBase {
     AsyncHttpClientConfig.Builder configBuilder = new AsyncHttpClientConfig.Builder();
 
     // set up a TrustManager that trusts everything
-    SSLContext sslContext = SSLContext.getInstance("SSL");
+    SSLContext sslContext = SSLContext.getInstance("TLS");
     sslContext.init(null, InsecureTrustManagerFactory.INSTANCE.getTrustManagers(), new SecureRandom());
     configBuilder.setHostnameVerifier((hostname, session) -> true).setSSLContext(sslContext);
 
